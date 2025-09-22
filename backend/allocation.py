@@ -1,4 +1,4 @@
-from .utils import call_claude
+from utils import call_claude
 
 def allocate_resources_claude(request_data: dict) -> dict:
     """
