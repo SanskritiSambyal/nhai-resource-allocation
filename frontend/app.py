@@ -94,7 +94,10 @@ with st.sidebar.expander("Project Inputs", expanded=True):
 
         with st.spinner("⏳ Generating allocation report..."):
             try:
-                response = requests.post("http://127.0.0.1:8000/allocate_resources", json=request_data)
+                BACKEND_URL = "https://nhai-resource-allocation.onrender.com"
+
+                response = requests.post(f"{BACKEND_URL}/allocate_resources", json=request_data)
+
                 if response.status_code == 200:
                     data = response.json()
                     if data.get("success"):
@@ -199,96 +202,4 @@ if st.session_state.get("allocation_report"):
 
     # Render in a scrollable HTML block
     components.html(html_content, height=1000, scrolling=True)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# ---------------------------
-# Display report in chat-style
-# ---------------------------
-# if st.session_state.allocation_report:
-#     st.markdown("### Allocation Report")
-
-#     # Custom CSS for nice chat/report style
-#     st.markdown("""
-#     <style>
-#     .allocation-box {
-#         background-color: #f9f9f9;
-#         border-left: 4px solid #4CAF50;
-#         padding: 20px;
-#         border-radius: 10px;
-#         margin-top: 16px;
-#         font-size: 16px;
-#         line-height: 1.6;
-#     }
-#     .allocation-box h2, .allocation-box h3 {
-#         color: #333;
-#         margin-top: 10px;
-#         margin-bottom: 6px;
-#     }
-#     .allocation-box ul {
-#         margin: 8px 0 8px 20px;
-#     }
-#     .allocation-box table {
-#         width: 100%;
-#         border-collapse: collapse;
-#         margin: 10px 0;
-#     }
-#     .allocation-box th, .allocation-box td {
-#         border: 1px solid #ccc;
-#         padding: 8px;
-#         text-align: left;
-#     }
-#     .allocation-box th {
-#         background-color: #f2f2f2;
-#     }
-#     </style>
-#     """, unsafe_allow_html=True)
-
-#     with st.expander("View Allocation Report", expanded=True):
-#         st.markdown(f'<div class="allocation-box">{st.session_state.allocation_report}</div>', unsafe_allow_html=True)
 
