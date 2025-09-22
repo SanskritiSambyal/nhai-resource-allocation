@@ -4,3 +4,4 @@ pydantic
 numpy
 requests
 anthropic
+python-dotenv
