@@ -73,12 +73,12 @@ def markdown_table_to_html(md_text):
 # Sidebar: Collapsible Inputs
 # ---------------------------
 with st.sidebar.expander("Project Inputs", expanded=True):
-    project_name = st.text_input("Project Name", "Delhi-Manali Highway Expansion")
+    project_name = st.text_input("Project Name", "Delhi-Mumbai Expressway")
     project_id = st.text_input("Project ID", "P001")
-    location = st.text_input("Location", "Manali")
+    location = st.text_input("Location", "Delhi to Mumbai via Ahemdabad")
     project_type = st.selectbox("Project Type", ["Highway", "Bridge", "Tunnel"])
     start_date = st.date_input("Start Date")
-    duration_days = st.number_input("Duration (days)", min_value=1, value=100)
+    duration_days = st.number_input("Duration (days)", min_value=1, value=200)
 
     if st.button("Generate Allocation Report"):
         request_data = {
