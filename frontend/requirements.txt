@@ -2,3 +2,4 @@ streamlit==1.29.0
 requests==2.32.1
 pandas==2.2.0
 plotly==5.19.0
+markdown2==2.4.2
