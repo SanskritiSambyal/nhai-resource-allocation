@@ -8,7 +8,7 @@ app = FastAPI(title="NHAI Resource Allocation API")
 # Enable CORS for local frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://nhai-resource-allocation.streamlit.app"],
     allow_methods=["*"],
     allow_headers=["*"]
 )
