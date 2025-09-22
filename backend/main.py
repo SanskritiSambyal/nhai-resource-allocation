@@ -20,3 +20,7 @@ class ProjectRequest(BaseModel):
 async def allocate_resources_endpoint(request: ProjectRequest):
     result = allocate_resources_claude(request.dict())
     return result
+
+@app.get("/")
+def root():
+    return {"message": "NHAI Resource Allocation Backend is live!"}
